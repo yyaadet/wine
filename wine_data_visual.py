@@ -8,6 +8,12 @@ import pmdarima as pm
 
 st.title('白酒数据分析')
 
+with st.sidebar:
+    st.write("关注公众号：行恒编程1对1")
+    st.image("static/xingheng.jpg")
+    st.markdown("查找更多答案，官网： <https://pychegg.51zhi.com/>")
+
+
 wine_df = pd.read_json("wine.json", lines=True)
 wine_df['year'] = wine_df['created_at'].apply(lambda x: x.year)
 wine_df = wine_df.astype({'year': 'string'})

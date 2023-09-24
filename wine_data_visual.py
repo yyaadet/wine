@@ -7,6 +7,24 @@ import pmdarima as pm
 
 
 st.title('白酒数据分析')
+st.markdown("""
+使用了Python与scrapy爬虫框架研发了数据收集软件，重点采集了微博上的白酒相关数据。根据百度指数的需求图谱、百度搜索相关词进行筛选，找到了如下的关键词：
+- 白酒
+- 五粮液
+- 茅台酒
+- 泸州老窖
+- 洋河
+- 汾酒
+- 郎酒
+- 习酒
+- 金六福
+- 西凤酒
+- 剑南春
+- 蒸馏酒
+- 酱香
+- 烧酒
+- 老白干
+""")
 
 with st.sidebar:
     st.write("关注公众号：行恒编程1对1")
@@ -53,6 +71,7 @@ st.code(cov_model.summary())
 
 
 st.subheader('ARIMA产量预测模型')
+st.write("基于ARIMA模型来预测未来的白酒产量，使用了python库pmdarima的auto_arima来训练模型，然后进行预测。最终取得最好的模型参数是SARIMAX(0, 1, 1)，并且成功预测了未来一年的白酒产量是582. ")
 #model = ARIMA(wine_product_and_blog_df['product'], order=(1, 0, 0))
 model = pm.auto_arima(wine_product_and_blog_df['product'], start_p=1, start_q=1, stepwise=True, d=1)
 st.code(model.summary())

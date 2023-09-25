@@ -37,6 +37,9 @@ wine_df['year'] = wine_df['created_at'].apply(lambda x: x.year)
 wine_df = wine_df.astype({'year': 'string'})
 
 st.metric("总数据条目", len(wine_df))
+
+st.subheader("微博数据样本")
+st.table(wine_df.head(50))
     
 year_df = wine_df.groupby('year', as_index=False).count()
 year_df['n_blog'] = year_df['ad_marked']
